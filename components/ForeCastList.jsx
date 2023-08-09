@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react'; 
 import { useNavigation } from '@react-navigation/native';
-import * as Location from 'expo-location'; 
+import * as Location from 'expo-location';
+import { getGridPoint, getForecastData } from '../../requests/weather.requests'; 
 
 
 export default function ForeCastList() {
@@ -38,6 +39,18 @@ export default function ForeCastList() {
         }
         let currentLocation = await Location.getCurrentPositionAsync({});
         setLocation(currentLocation);
+    }
+    useEffect(() => {
+        if(location && location.coords) {
+            getWeatherData();
+        }
+        // When location is updated, run this use Effect 
+    }, [location]);
+
+    const getWeatherData = async () => {
+        let forecastUrl = await getGridPoint(location);
+        let forecastData = await getForecastData(forecastUrl); 
+        setForecast(forecastData);
     }
     // 
     return (
