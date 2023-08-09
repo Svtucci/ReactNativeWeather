@@ -2,6 +2,8 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ForeCastList from './components/ForeCastList';
+import ForecastDetails from './components/Forecastdetails';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -11,7 +13,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Weekly Forecast">
         {/* Similar to a Route */}
         <Stack.Screen name="Weekly Forecast" component={ForeCastList} />
-        {/* <Stack.Screen name="Details" component={ForecastDetails} /> */}
+        <Stack.Screen name="Details" component={ForecastDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

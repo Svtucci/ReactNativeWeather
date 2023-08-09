@@ -5,8 +5,13 @@ import {
     TouchableOpacity, 
 } from 'react-native';
 import { useState } from 'react'; 
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function ForeCastList() {
+    // Equivalent to use history 
+    const navigation = useNavigation();
+
     const [forecast, setForecast] = useState([
         {
             temperature: 80,
@@ -28,7 +33,9 @@ export default function ForeCastList() {
                     <TouchableOpacity 
                         style={{ padding: 20, borderColor: 'gray', borderBottomWidth: 1 }}
                         onPress={() => {
-                            console.log('You pressed a button!')
+                            console.log('You pressed a button!');
+                            //                    name,    props 
+                            navigation.navigate('Details', item);
                         }}    
                     >
                         <Text>{item.name} {item.temperature}</Text>
