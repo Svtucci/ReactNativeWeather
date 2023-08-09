@@ -8,13 +8,18 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar 
-      backgroundColor='blue'
-      animated
-      barStyle={'default'}
-      hidden={false}
+        backgroundColor='blue'
+        animated
+        barStyle={'default'}
+        hidden={false}
       />
-      <Text>Hello World!</Text>
-      <StatusBar style="auto" />
+      <NavigationContainer>
+        {/* Similar to a Router in React */}
+        <Stack.Navigator initialRouteName="Weekly Forecast">
+          {/* Similar to Routes in React */}
+          <Stack.Screen name="Weekly Forecast" component={ForecastList} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
