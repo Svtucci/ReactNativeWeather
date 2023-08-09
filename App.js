@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, StatusBar, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ForecastList from './components/ForeCastList';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,9 @@ export default function App() {
         barStyle={'default'}
         hidden={false}
       />
+
+      <ForecastList />
+      
       <NavigationContainer>
         {/* Similar to a Router in React */}
         <Stack.Navigator initialRouteName="Weekly Forecast">
