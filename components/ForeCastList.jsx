@@ -2,6 +2,7 @@ import {
     View,
     Text,
     FlatList,
+    TouchableOpacity, 
 } from 'react-native';
 import { useState } from 'react'; 
 
@@ -24,11 +25,14 @@ export default function ForeCastList() {
             <FlatList 
                 data={forecast}
                 renderItem={({item}) => (
-                    <>
-                    <View style={{ padding: 20, borderColor: 'gray', borderBottomWidth: 1 }}>
+                    <TouchableOpacity 
+                        style={{ padding: 20, borderColor: 'gray', borderBottomWidth: 1 }}
+                        onPress={() => {
+                            console.log('You pressed a button!')
+                        }}    
+                    >
                         <Text>{item.name} {item.temperature}</Text>
-                    </View>
-                    </>
+                    </TouchableOpacity>
                 )}
                 style={{ width: '100%' }}
             />
