@@ -19,20 +19,18 @@ export default function ForeCastList() {
         }
     ]);
     return (
-        <View>
-            <Text>
-                List Goes Here...
-            </Text>
+        <View style={{ height: '100%' }}>
             {/* Similar to .map to display data */}
             <FlatList 
                 data={forecast}
                 renderItem={({item}) => (
                     <>
-                        <Text>
-                            {item.name} {item.temperature}
-                        </Text>
+                    <View style={{ padding: 20, borderColor: 'gray', borderBottomWidth: 1 }}>
+                        <Text>{item.name} {item.temperature}</Text>
+                    </View>
                     </>
                 )}
+                style={{ width: '100%' }}
             />
         </View>
     )
